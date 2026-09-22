@@ -2,7 +2,7 @@
 
 ## Metadata
 
-- **Status:** Draft for implementation planning
+- **Status:** MVP boundary approved for implementation planning
 - **Version:** 1.0.0
 - **Constitution:** [constitution.md](constitution.md)
 - **Primary outcome:** A repeatable workflow that loads Jira/Confluence reporting data, validates and normalizes it, and produces a readable Markdown status report.
@@ -40,6 +40,37 @@ The first release is an MVP focused on reliable data acquisition, normalization,
 - Full workflow scheduling, notifications, or multi-tenant administration in the MVP.
 - Destructive updates to Jira or Confluence content.
 - A report format other than Markdown in the MVP.
+
+## 3.1 MVP Capability Allocation
+
+The following boundary is approved for the MVP. Mechanism-level decisions remain assigned to the clarification tasks named below and MUST be resolved before the dependent implementation milestone begins.
+
+| Capability | MVP decision | Boundary |
+| --- | --- | --- |
+| Authentication and authorization | **MVP** | Authorized access to report runs, history, reports, and diagnostics is required. The identity mechanism, role mapping, and endpoint matrix are deferred to T002. |
+| Source selection | **MVP** | Report Users select enabled, preconfigured sources. Creating or editing source connections is deferred to T010 unless explicitly approved there. |
+| Source administration | **Deferred** | Administrator APIs/UI, credential rotation workflows, and connection testing are deferred pending T010. |
+| Fixture-backed acquisition | **MVP** | Fixture/mock acquisition is required for local development and automated verification without live credentials. |
+| Jira and Confluence adapters | **MVP target** | Supported live adapters are part of the MVP delivery plan, subject to the source contracts from T003 and T004. |
+| Validation and normalization | **MVP** | Request validation, source validation, normalization, warnings, and blocking-error classification are required. |
+| Markdown report generation | **MVP** | The versioned Markdown template, deterministic rendering, empty/warning behavior, and report retrieval are required. |
+| Report-run persistence and history | **MVP** | PostgreSQL-backed run lifecycle, audit context, status history, and completed report retrieval are required. |
+| Scheduling and notifications | **Deferred** | No scheduled runs, notifications, or background recurrence is included in this MVP. |
+| Destructive Jira/Confluence updates | **Deferred** | The MVP reads source data and generates reports; it does not create, update, or delete external content. |
+| Production deployment | **Deferred** | Local Docker-based PostgreSQL and reproducible development are required; production infrastructure is outside this specification. |
+
+## 3.2 Scenario-to-Capability Mapping
+
+Every MVP scenario is assigned to an included capability and its planned verification path:
+
+| Scenario | MVP capability | Planned verification |
+| --- | --- | --- |
+| A: Generate a report from valid source data | Authorized source selection, acquisition, validation, normalization, rendering, persistence, and report retrieval | Fixture-backed end-to-end report test and live-adapter verification after T003/T004 |
+| B: Reject incomplete source data | Source validation, blocking-error classification, and safe user feedback | Invalid-record unit, API, and UI tests |
+| C: Handle an empty result | Empty-result semantics, report status, and accessible UI outcome | Empty fixture, API contract, renderer, and frontend state tests |
+| D: Handle a transient integration failure | Classified dependency failures, bounded retry policy, durable run status, and retry behavior | Adapter failure-injection and recovery tests |
+| E: Review previous runs | PostgreSQL run history, authorization, pagination, and report availability | Database integration, API authorization, and frontend history tests |
+| F: Recover from an interrupted run | Run lifecycle recovery, idempotency, and durable final-state rules | Process-interruption, duplicate-request, and retry tests |
 
 ## 4. User Roles
 
