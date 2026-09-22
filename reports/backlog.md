@@ -12,22 +12,22 @@ Repository structure and naming conventions are documented in [repository-struct
 - [x] Confirm project scope, success criteria, and delivery boundaries. — custom skill
 - [x] Finalize repository structure and naming conventions. — custom skill
 - [x] Create or update the main project documentation entry point. — custom skill
-- [ ] Establish a baseline branch and working conventions for commits and pull requests. — custom skill
-- [ ] Document environment prerequisites, required tools, and setup steps. — custom skill
+- [ ] Establish a baseline branch and working conventions for commits and pull requests. — custom skill — GitHub issue #1
+- [ ] Document environment prerequisites, required tools, and setup steps. — custom skill — GitHub issue #10
 
 ### 1.2 Environment and toolchain
-- [ ] Define the runtime, dependencies, and package manager requirements. — custom skill
-- [ ] Configure the local development environment for all contributors. — custom skill
-- [ ] Set up environment variables, config files, and secret handling patterns. — custom skill
-- [ ] Create a standard project bootstrap command or script for onboarding. — custom skill
-- [ ] Validate that the project runs cleanly from a fresh environment. — custom skill
+- [ ] Define the runtime, dependencies, and package manager requirements. — custom skill — GitHub issue #11
+- [ ] Configure the local development environment for all contributors. — custom skill — GitHub issue #12
+- [ ] Set up environment variables, config files, and secret handling patterns. — custom skill — GitHub issue #2
+- [ ] Create a standard project bootstrap command or script for onboarding. — custom skill — GitHub issue #3
+- [ ] Validate that the project runs cleanly from a fresh environment. — custom skill — GitHub issue #8
 
 ### 1.3 Project hygiene and governance
-- [ ] Configure .gitignore and ignore rules for generated output and local files. — custom skill
-- [ ] Define coding standards for formatting, linting, and review expectations. — custom skill
-- [ ] Establish issue and task tracking conventions aligned with the backlog. — MCP
-- [ ] Create a short definition of done for features and bug fixes. — custom skill
-- [ ] Identify the initial backlog owners and escalation path for blockers. — MCP
+- [ ] Configure .gitignore and ignore rules for generated output and local files. — custom skill — GitHub issue #4
+- [ ] Define coding standards for formatting, linting, and review expectations. — custom skill — GitHub issue #5
+- [ ] Establish issue and task tracking conventions aligned with the backlog. — MCP — GitHub issue #9
+- [ ] Create a short definition of done for features and bug fixes. — custom skill — GitHub issue #6
+- [ ] Identify the initial backlog owners and escalation path for blockers. — MCP — GitHub issue #7
 
 ## Phase 2: Core Features
 
